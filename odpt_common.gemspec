@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = "This gem provides modules for Rails Application of so calles \'open data\' related to transportation network in Japan."
   # spec.description   = ""
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.homepage      = "https://github.com/osorubeki-fujita/odpt_common"
 
   spec.license = "MIT"
 

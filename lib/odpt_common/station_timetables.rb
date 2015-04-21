@@ -1,0 +1,2 @@
+module OdptCommon::StationTimetables
+end

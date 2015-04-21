@@ -1,5 +1,5 @@
 # 文字列 (String) のクラスに組み込むモジュール
-# @note 既存クラスの拡張を行う。
+# @note 標準添付ライブラリの拡張
 module OdptCommon::StringExt
 
   def process_train_information_text

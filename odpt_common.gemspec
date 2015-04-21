@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["osorubeki.fujita@gmail.com"]
 
   spec.summary       = "This gem provides modules for Rails Application of so called \'open data\' related to transportation network in Japan."
-  spec.description   = "Please note: This gem is a temporary version."
+  spec.description   = "This gem provides modules for Rails Application of so called \'open data\' related to transportation network in Japan. [Please note] : This gem is a temporary version."
   spec.homepage      = "https://github.com/osorubeki-fujita/odpt_common"
 
   spec.license = "MIT"

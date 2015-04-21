@@ -3,10 +3,11 @@ module OdptCommon
 end
 
 require "odpt_common/version"
-
-::Dir.glob( "#{ __FILE__ }/**/**.rb" ).sort.each do | filename |
-  require filename
-end
+require "odpt_common/calc_time"
+require "odpt_common/station_timetables"
+require "odpt_common/station_timetables/group_by_railway_direction"
+require "odpt_common/station_timetables/group_by_railway_line"
+require "odpt_common/string_ext"
 
 class String
   include ::OdptCommon::StringExt

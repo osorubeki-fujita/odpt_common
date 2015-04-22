@@ -35,62 +35,16 @@ module OdptCommon::StringExt
     str
   end
 
-  # 16進数の文字列か否かを判定するメソッド
-  # @return [Boolean]
-  def hex_string?
-    /\A[\da-fA-F]+\Z/ === self
-  end
-
-# @!group WebColor を表す文字列に対するメソッド
-
-  # WebColorの文字列（"#"なし）であるか否かを判定するメソッド
-  # @return [Boolean]
-  def is_web_color?
-    hex_string? and length == 6
-  end
-
-  # WebColor の文字列（"#"あり）であるか否かを判定するメソッド
-  # @return [Boolean]
-  def is_web_color_with_sharp?
-    if /\A\#(.+)\Z/ =~ self
-      $1.is_web_color?
-    else
-      false
-    end
-  end
-
-  # WebColor の文字列であるか否かを判定するメソッド
-  # @return [Boolean]
-  def is_improper_web_color?
-    is_web_color? or is_web_color_with_sharp?
-  end
-
-  # WebColor を RgbColor に変換するメソッド
-  # @return [::Array <Integer (natural number)>]
-  def to_rgb_color
-    unless is_improper_web_color?
-      raise "Error"
-    end
-    gsub( /\#/ , "" ).each_char.each_slice(2).map{ | ary | ary.join.hex }
-  end
-
-  # @!endgroup
-
   def delete_station_subname
-    regexp = ::ApplicationHelper.regexp_for_parentheses_normal
-    gsub( regexp , "" )
-  end
-
-  def process_kouji
-    kouji_regexp = ::ApplicationHelper.regexp_for_kouji
-    gsub( kouji_regexp , "麴町" )
+    gsub( ::PositiveSupport::RegexpLibrary.regexp_for_parentheses_ja , "" )
   end
 
   def process_specific_letter
-    process_kouji
+    self
   end
 
   def station_name_in_title
     delete_station_subname.process_specific_letter
   end
+
 end

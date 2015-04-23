@@ -33,5 +33,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec"
 
   spec.add_runtime_dependency "activesupport" , ">= 4.2.1"
-  spec.add_development_dependency "positive_support" , ">= 0.1.0"
+  spec.add_development_dependency "positive_support" , ">= 0.1.2"
 end

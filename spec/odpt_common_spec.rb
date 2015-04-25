@@ -1,11 +1,12 @@
 require 'spec_helper'
+require 'deployer'
+
+spec_filename = ::File.expand_path( ::File.dirname( __FILE__ ) )
+version = "0.1.7"
 
 describe OdptCommon do
-  it 'has a version number' do
-    expect(OdptCommon::VERSION).not_to be nil
-  end
-
-  it 'does something useful' do
-    expect(false).to eq(true)
+  it "has a version number \'#{ version }\'" do
+    expect( ::OdptCommon::VERSION ).to eq( version )
+    expect( ::Deployer.version_check( ::OdptCommon::VERSION , spec_filename ) ).to eq( true )
   end
 end

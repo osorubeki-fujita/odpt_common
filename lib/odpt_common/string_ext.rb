@@ -39,15 +39,15 @@ module OdptCommon::StringExt
     delete_station_subname.process_machine_dependent_character
   end
 
+  def process_machine_dependent_character
+    self
+  end
+
   def revive_machine_dependent_character
     self
   end
 
   protected
-
-  def process_machine_dependent_character
-    self
-  end
 
   def delete_station_subname
     gsub( ::PositiveSupport::RegexpLibrary.regexp_for_parentheses_ja , "" )

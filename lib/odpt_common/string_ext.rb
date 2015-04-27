@@ -39,6 +39,10 @@ module OdptCommon::StringExt
     delete_station_subname.process_machine_dependent_character
   end
 
+  def revive_machine_dependent_character
+    self
+  end
+
   protected
 
   def process_machine_dependent_character

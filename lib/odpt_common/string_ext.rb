@@ -35,16 +35,18 @@ module OdptCommon::StringExt
     str
   end
 
-  def delete_station_subname
-    gsub( ::PositiveSupport::RegexpLibrary.regexp_for_parentheses_ja , "" )
+  def station_name_in_title
+    delete_station_subname.process_machine_dependent_character
   end
 
-  def process_specific_letter
+  protected
+
+  def process_machine_dependent_character
     self
   end
 
-  def station_name_in_title
-    delete_station_subname.process_specific_letter
+  def delete_station_subname
+    gsub( ::PositiveSupport::RegexpLibrary.regexp_for_parentheses_ja , "" )
   end
 
 end

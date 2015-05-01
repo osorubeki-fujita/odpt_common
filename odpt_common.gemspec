@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["osorubeki.fujita@gmail.com"]
 
   spec.summary       = "This gem provides modules for Rails Application of so called \'open data\' related to transportation network in Japan."
-  spec.description   = "This gem provides modules for Rails Application of so called \'open data\' related to transportation network in Japan. [Please note] : This gem is a temporary version."
+  spec.description   = "This gem provides modules for Rails Application of so called \'open data\' related to transportation network in Japan. [Please note] This gem is a temporary version."
   spec.homepage      = "https://github.com/osorubeki-fujita/odpt_common"
 
   spec.license = "MIT"
@@ -33,8 +33,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec"
 
   spec.add_development_dependency "capistrano"
-  spec.add_development_dependency "deplo", ">= 0.1.2"
+  spec.add_development_dependency "deplo", ">= 0.1.4"
 
   spec.add_runtime_dependency "activesupport" , ">= 4.2.1"
-  spec.add_development_dependency "positive_support" , ">= 0.2.4"
+  spec.add_development_dependency "positive_support" , ">= 0.3.0"
 end

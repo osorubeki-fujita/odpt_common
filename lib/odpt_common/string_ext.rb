@@ -43,8 +43,6 @@ module OdptCommon::StringExt
     self
   end
 
-  protected
-
   def delete_station_subname
     gsub( ::PositiveStringSupport::RegexpLibrary.regexp_for_parentheses_ja , "" )
   end

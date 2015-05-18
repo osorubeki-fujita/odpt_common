@@ -2,7 +2,7 @@
 # @note 標準添付ライブラリの拡張
 module OdptCommon::StringExt
 
-  def process_train_information_text
+  def process_train_operation_text
     str = self
     str = str.zen_num_to_han
     str = str.zen_alphabet_to_han

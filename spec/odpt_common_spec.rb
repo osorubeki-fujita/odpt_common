@@ -2,7 +2,7 @@ require 'spec_helper'
 require 'deplo'
 
 spec_filename = ::File.expand_path( ::File.dirname( __FILE__ ) )
-version = "0.2.2"
+version = "0.2.3"
 
 describe OdptCommon do
   it "has a version number \'#{ version }\'" do
@@ -28,9 +28,19 @@ describe String , "coverted by \"OdptCommon::StringExt\"" do
   end
 
   it "is converted by method \'process_train_operation_text\'" do
-    str_before = "14時28分頃、地震のため、遅れが出ています。只今、東京メトロ線、都営地下鉄線、JR線、東急線、東武線、小田急線、京王線、西武線で振替輸送を実施しています。詳しくは駅係員にお尋ねください。" # 2015-05-25 14:28
-    str_after = "14時28分頃発生した地震のため、遅れが出ています。\n只今、東京メトロ線、都営地下鉄線、JR線、東急線、東武線、小田急線、京王線、西武線で振替輸送を実施しています。\n詳しくは駅係員にお尋ねください。"
-    expect( str_before.process_train_operation_text ).to eq( str_after )
+    # 2015-05-25 14:28
+
+    str_before_1 = "14時28分頃、地震のため、遅れが出ています。只今、東京メトロ線、都営地下鉄線、JR線、東急線、東武線、小田急線、京王線、西武線で振替輸送を実施しています。詳しくは駅係員にお尋ねください。"
+    str_after_1 = "14時28分頃発生した地震のため、遅れが出ています。\n只今、東京メトロ線、都営地下鉄線、JR線、東急線、東武線、小田急線、京王線、西武線で振替輸送を実施しています。\n詳しくは駅係員にお尋ねください。"
+    expect( str_before_1.process_train_operation_text ).to eq( str_after_1 )
+
+    str_before_2 = "14時28分頃、地震のため、一部の列車に遅れが出ています。 只今、東京メトロ線、都営地下鉄線、JR線、東武線、西武線、りんかい線、ゆりかもめ線で振替輸送を実施しています。 詳しくは駅係員にお尋ねください。"
+    str_after_2 = "14時28分頃発生した地震のため、一部の列車に遅れが出ています。\n只今、東京メトロ線、都営地下鉄線、JR線、東武線、西武線、りんかい線、ゆりかもめで振替輸送を実施しています。\n詳しくは駅係員にお尋ねください。"
+    expect( str_before_2.process_train_operation_text ).to eq( str_after_2 )
+
+    str_before_3 = "14時28分頃、地震のため、遅れが出ています。 只今、東京メトロ線、都営地下鉄線、JR線、東急線、東武線、京成線、小田急線、京王線、つくばエクスプレス線で振替輸送を実施しています。 詳しくは駅係員にお尋ねください。"
+    str_after_3 = "14時28分頃発生した地震のため、遅れが出ています。\n只今、東京メトロ線、都営地下鉄線、JR線、東急線、東武線、京成線、小田急線、京王線、つくばエクスプレスで振替輸送を実施しています。\n詳しくは駅係員にお尋ねください。"
+    expect( str_before_3.process_train_operation_text ).to eq( str_after_3 )
   end
 
 end

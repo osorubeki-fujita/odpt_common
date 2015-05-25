@@ -12,6 +12,10 @@ module OdptCommon::StringExt
     regexp_2 = /\A(.+(?:線|ライン)) (.+?)駅? - (.+?)駅?間?で(?:発生した|の)?(?:、?)(.+)のため(?:、?)/
     regexp_3 = /\A(.+(?:線|ライン)) (.+?)駅?で(?:発生した|の)?(?:、?)(.+)のため(?:、?)/
 
+    regexp_natural_disaster = /(\d{1,2}時\d{1,2}分頃)、(地震)のため、(遅れが出ています。)/
+
+    regexp_cause = /での(.+)により、/
+
     case str
     when regexp_1
       str = str.gsub( regexp_1 ) { "#{ $1 }での#{ $2 }により、" }
@@ -21,7 +25,8 @@ module OdptCommon::StringExt
       str = str.gsub( regexp_3 ) { "#{ $1 } #{ $2 }駅での#{ $3 }により、" }
     end
 
-    regexp_cause = /での(.+)により、/
+    str = str.gsub( regexp_natural_disaster ) { "#{ $1 }発生した#{ $2 }のため、#{ $3 }" }
+
     if regexp_cause =~ str
       case $1
       when "車両点検" , "踏切安全確認"
@@ -29,7 +34,7 @@ module OdptCommon::StringExt
       end
     end
 
-    str = str.gsub( /。\n?(?!\Z)/ , "。\n" )
+    str = str.gsub( /。\n? ?(?!\Z)/ , "。\n" )
     str = str.gsub( /に(?=振替輸送を実施しています。)/ , "で" )
     str = str.gsub( /(?<=詳しくは)、(?=駅係員にお尋ねください。)/ , "" )
     str

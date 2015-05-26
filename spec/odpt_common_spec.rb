@@ -2,7 +2,7 @@ require 'spec_helper'
 require 'deplo'
 
 spec_filename = ::File.expand_path( ::File.dirname( __FILE__ ) )
-version = "0.2.3"
+version = "0.2.4"
 
 describe OdptCommon do
   it "has a version number \'#{ version }\'" do
@@ -41,6 +41,10 @@ describe String , "coverted by \"OdptCommon::StringExt\"" do
     str_before_3 = "14時28分頃、地震のため、遅れが出ています。 只今、東京メトロ線、都営地下鉄線、JR線、東急線、東武線、京成線、小田急線、京王線、つくばエクスプレス線で振替輸送を実施しています。 詳しくは駅係員にお尋ねください。"
     str_after_3 = "14時28分頃発生した地震のため、遅れが出ています。\n只今、東京メトロ線、都営地下鉄線、JR線、東急線、東武線、京成線、小田急線、京王線、つくばエクスプレスで振替輸送を実施しています。\n詳しくは駅係員にお尋ねください。"
     expect( str_before_3.process_train_operation_text ).to eq( str_after_3 )
+    
+    str_before_4 = "東急田園都市線内での東急線内遅延により、一部の列車に遅れが出ています。"
+    str_after_4 = "東急田園都市線内での遅延により、一部の列車に遅れが出ています。"
+    expect( str_before_4.process_train_operation_text ).to eq( str_after_4 )
   end
 
 end

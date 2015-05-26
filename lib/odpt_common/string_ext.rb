@@ -15,6 +15,8 @@ module OdptCommon::StringExt
     regexp_natural_disaster = /(\d{1,2}時\d{1,2}分頃)、(地震)のため、((?:一部の列車に)?遅れが出ています。)/
 
     regexp_cause = /での(.+)により、/
+    
+    regexp_furikae = /に(?=振替輸送を実施しています。)/
 
     case str
     when regexp_1
@@ -34,9 +36,21 @@ module OdptCommon::StringExt
       end
     end
 
+    str = str.gsub( regexp_furikae , "で" )
+    # str = str.gsub( regexp_furikae , "への" )
+    
+    # cf. 東急田園都市線内での東急線内遅延により、一部の列車に遅れが出ています。
+    regexp_for_invalid_railway_line_info_of_another_operator = /(.+)線内での(.+)線内遅延により、/
+    if regexp_for_invalid_railway_line_info_of_another_operator =~ str
+      railway_line_name_precise , operator_name = $1 , $2
+      if /\A#{ operator_name }/ === railway_line_name_precise
+        str = str.gsub( regexp_for_invalid_railway_line_info_of_another_operator ) { "#{ $1 }線内での遅延により、" }
+      end
+    end
+
     str = str.gsub( /(?<=つくばエクスプレス|ゆりかもめ)線/ , "" )
     str = str.gsub( /。\n? ?(?!\Z)/ , "。\n" )
-    str = str.gsub( /に(?=振替輸送を実施しています。)/ , "で" )
+    
     str = str.gsub( /(?<=詳しくは)、(?=駅係員にお尋ねください。)/ , "" )
     str
   end

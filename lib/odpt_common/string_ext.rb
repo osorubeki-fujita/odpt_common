@@ -57,6 +57,12 @@ module OdptCommon::StringExt
       sections_in_api = $2
       sections_to_a = $2.split( /(?<=駅間)　?/ ).map { | section | section.split( /〜/ ).join( " - " ) }
       sections = sections_to_a.join( "／" )
+
+      puts header_of_partial_operation
+      puts sections_in_api
+      puts sections_to_a
+      puts sections
+
       str = str.gsub( regexp_for_partial_operation ) { "#{ header_of_partial_operation }：#{ sections }\n" }
     end
 

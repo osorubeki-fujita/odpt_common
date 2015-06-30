@@ -48,6 +48,18 @@ module OdptCommon::StringExt
       end
     end
 
+    str = str.gsub( /只今/ , "ただいま" )
+
+    # cf. 17時26分頃、築地駅で人身事故のため、折返し運転を行っています。全線での運転再開は、18時30分頃を見込んでいます。折返し運転区間　北千住〜八丁堀駅間　霞ケ関〜中目黒駅間只今、東京メトロ線、都営地下鉄線、ＪＲ線、東急線、東武線、京成線、つくばエクスプレス線に振替輸送を実施しています。詳しくは、駅係員にお尋ねください。
+    regexp_for_partial_operation = /(折返し運転区間)[　 :：]((?:.+?〜.+?駅間　?)+)\n?/
+    if regexp_for_partial_operation =~ str
+      header_of_partial_operation = $1
+      sections_in_api = $2
+      sections_to_a = $2.split( /(?<=駅間)　?/ ).map { | section | section.split( /〜/ ).join( " - " ) }
+      sections = sections_to_a.join( "／" )
+      str = str.gsub( regexp_for_partial_operation ) { "#{ header_of_partial_operation }：#{ sections }\n" }
+    end
+
     str = str.gsub( /(?<=つくばエクスプレス|ゆりかもめ)線/ , "" )
     str = str.gsub( /。\n? ?(?!\Z)/ , "。\n" )
     

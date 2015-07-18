@@ -1,9 +1,7 @@
 require "odpt_common/version"
 
 require "positive_support"
-
-require "odpt_common/calc_time"
-require "odpt_common/string_ext"
+require "required_files"
 
 module OdptCommon
 
@@ -57,4 +55,4 @@ module OdptCommon
 
 end
 
-include OdptCommon.init
+OdptCommon.init

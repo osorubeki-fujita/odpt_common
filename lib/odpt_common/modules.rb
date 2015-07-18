@@ -1,0 +1,2 @@
+module OdptCommon::Modules
+end

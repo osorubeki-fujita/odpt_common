@@ -31,7 +31,7 @@ module OdptCommon
     end
 
     def required_files
-      require_relative "odpt_common /required.rb"
+      require_relative "odpt_common/required.rb"
       require_relative "odpt_common/required/all.rb"
 
       ::Dir.glob( "#{ ::OdptCommon::LIB_DIR }/odpt_common/required/all/**/**.rb" ).sort.each do | filename |

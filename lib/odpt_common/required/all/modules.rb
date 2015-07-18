@@ -1,7 +1,12 @@
 class OdptCommon::Required::All::Modules < OdptCommon::Required
 
   def self.other_files
-    ToFactory.files
+    [
+      MethodMissing.files ,
+      Time.files ,
+      #
+      ToFactory.files
+    ]
   end
 
 end

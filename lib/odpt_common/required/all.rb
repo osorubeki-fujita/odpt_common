@@ -5,7 +5,10 @@ class OdptCommon::Required::All < OdptCommon::Required
   end
 
   def self.other_files
-    Modules.files
+    [
+      Modules.files ,
+      Factory.files
+    ]
   end
 
   def self.ignored_files

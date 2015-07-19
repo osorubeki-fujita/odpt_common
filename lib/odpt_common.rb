@@ -6,6 +6,7 @@ require "required_files"
 module OdptCommon
 
   extend ::ActiveSupport::Concern
+  include ::PositiveBasicSupport::Modules::ConstantsAsClassMethods
 
   LIB_DIR = ::File.expand_path( ::File.dirname( __FILE__ ) )
 

@@ -5,7 +5,11 @@ class OdptCommon::Required::All::Modules < OdptCommon::Required
       MethodMissing.files ,
       Time.files ,
       #
+      Dictionary.files ,
+      Decision.files ,
       ToFactory.files
+      #
+      # Fundamental.files
     ]
   end
 

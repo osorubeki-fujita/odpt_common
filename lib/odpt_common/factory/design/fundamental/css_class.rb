@@ -31,7 +31,7 @@ class OdptCommon::Factory::Design::Fundamental::CssClass < OdptCommon::Factory::
   private
 
   def basename
-    @object.send( method_for_making_str )
+    @object.send( @method_for_making_str )
   end
 
 end

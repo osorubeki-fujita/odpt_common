@@ -13,7 +13,7 @@ class OdptCommon::Factory::Design::RailwayLine::CssClass < OdptCommon::Factory::
       "shinkansen_e"
     elsif @object.shinkansen_of_jr_central?
       "shinkansen_c"
-    elsif @object.minato_mirai_line?
+    elsif @object.minatomirai_line?
       "yokohama_minatomirai_mm"
     elsif @object.keio_line?
       "keio_line"

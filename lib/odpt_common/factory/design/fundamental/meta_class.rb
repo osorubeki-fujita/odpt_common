@@ -5,7 +5,7 @@ class OdptCommon::Factory::Design::Fundamental::MetaClass
   end
 
   def self.process( *args )
-    self.new( *args ).to_s
+    return self.new( *args ).to_s
   end
 
   private

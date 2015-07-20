@@ -22,9 +22,9 @@ class OdptCommon::Factory::Design::Fundamental::CssClass < OdptCommon::Factory::
     str = str.downcase
 
     if @header.present?
-      "#{ header }_#{ str }"
+      return "#{ header }_#{ str }"
     else
-      str
+      return str
     end
   end
 

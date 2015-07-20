@@ -5,9 +5,9 @@ class OdptCommon::Factory::Design::RailwayLine::CssClass < OdptCommon::Factory::
   end
 
   def to_s
-    if @object.marunouchi_branch_line?
+    if @object.tokyo_metro_marunouchi_branch_line?
       str = "tokyo_metro_marunouchi_branch"
-    elsif @object.chiyoda_branch_line?
+    elsif @object.tokyo_metro_chiyoda_branch_line?
       str = "tokyo_metro_chiyoda_branch"
     elsif @object.shinkansen_of_jr_east?
       str = "shinkansen_e"

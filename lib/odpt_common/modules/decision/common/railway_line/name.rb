@@ -1,10 +1,10 @@
 module OdptCommon::Modules::Decision::Common::RailwayLine::Name
 
-  def tokyo_metro_marunouchi_branch_line?
+  def on_tokyo_metro_marunouchi_branch_line?
     on_the_railway_line_of?( "odpt.Railway:TokyoMetro.MarunouchiBranch" )
   end
 
-  def tokyo_metro_chiyoda_branch_line?
+  def on_tokyo_metro_chiyoda_branch_line?
     on_the_railway_line_of?( "odpt.Railway:TokyoMetro.ChiyodaBranch" )
   end
 
@@ -20,41 +20,50 @@ module OdptCommon::Modules::Decision::Common::RailwayLine::Name
     on_the_railway_line_of?( "odpt.Railway:JR-East" )
   end
 
-  def shinkansen_of_jr_east?
+  def on_shinkansen_of_jr_east?
     on_the_railway_line_of?( "odpt.Railway:JR-East.Shinkansen" , "odpt.Railway:JR-East.Shinkansen.2015" , "odpt.Railway:JR-East.Shinkansen.2016" )
   end
 
-  def shinkansen_of_jr_central?
+  def on_shinkansen_of_jr_central?
     on_the_railway_line_of?( "odpt.Railway:JR-Central.Shinkansen" )
   end
 
-  def minatomirai_line?
+  def on_minatomirai_line?
     on_the_railway_line_of?( "odpt.Railway:YokohamaMinatomiraiRailway.Minatomirai" )
   end
 
-  def tobu_sky_tree_isesaki_line?
+  def on_tobu_sky_tree_isesaki_line?
     on_the_railway_line_of?( "odpt.Railway:Tobu.SkyTreeIsesaki" )
   end
 
-  def seibu_yurakucho_line?
+  def on_seibu_yurakucho_line?
     on_the_railway_line_of?( "odpt.Railway:Seibu.SeibuYurakucho" )
   end
 
-  def keio_line?
+  def on_keio_line?
     on_the_railway_line_of?( "odpt.Railway:Keio.Keio" )
   end
 
-  def yurikamome_line?
+  def on_yurikamome_line?
     on_the_railway_line_of?( "odpt.Railway:Yurikamome.Yurikamome" )
   end
 
   # @!group 複数の路線
 
   def on_shinkansen?
-    shinkansen_of_jr_east? or shinkansen_of_jr_central?
+    on_shinkansen_of_jr_east? or on_shinkansen_of_jr_central?
   end
 
   # @!endgroup
+
+  #-------- [alias]
+  [ :toei_mita_line , :shinkansen ].each do | method_base_name |
+    eval <<-ALIAS
+      alias :#{method_base_name}? :on_#{method_base_name}?
+      alias :is_on_#{method_base_name}? :on_#{method_base_name}?
+      alias :is_#{method_base_name}? :on_#{method_base_name}?
+    ALIAS
+  end
 
   private
 

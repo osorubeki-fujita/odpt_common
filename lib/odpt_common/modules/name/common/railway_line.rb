@@ -48,7 +48,7 @@ module OdptCommon::Modules::Name::Common::RailwayLine
   # @return [String] 路線名（インスタンス変数 name）が定義されている場合
   # @return [nil] 路線名（インスタンス変数 name）が定義されていない場合
   # @example
-  #   ::TokyoMetro::Static.railway_line_infos.each_value { | railway_line | puts railway_line.same_as.ljust(48) + " : " + railway_line.name_ja_normal }
+  #   ::TokyoMetro::Static.railway_line_infos.each_value { | railway_line | puts same_as.ljust(48) + " : " + railway_line.name_ja_normal }
   #   =>
   #   odpt.Railway:TokyoMetro.Ginza                    : 銀座線
   #   odpt.Railway:TokyoMetro.Marunouchi               : 丸ノ内線
@@ -298,12 +298,6 @@ module OdptCommon::Modules::Name::Common::RailwayLine
 
   def is_not_branch_railway_line_info
     !( is_branch_railway_line_info )
-  end
-
-  # @!group Polymorphic method
-
-  def railway_line
-    self
   end
 
   # @!endgroup

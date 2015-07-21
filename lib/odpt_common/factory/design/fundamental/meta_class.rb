@@ -8,6 +8,10 @@ class OdptCommon::Factory::Design::Fundamental::MetaClass
     return self.new( *args ).to_s
   end
 
+  def to_s
+    raise "This method '#{ __method__ }' is not defined in this class '#{ self.class.name }'."
+  end
+
   private
 
   def same_as

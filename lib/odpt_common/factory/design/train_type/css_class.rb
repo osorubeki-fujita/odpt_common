@@ -1,4 +1,4 @@
-class OdptCommon::Factory::Design::TrainType::CssClass
+class OdptCommon::Factory::Design::TrainType::CssClass <  OdptCommon::Factory::Design::Fundamental::MetaClass
 
   def to_s
     regexp = /\Acustom\.TrainType\:(?:[a-zA-Z]+)\.(?:[a-zA-Z]+)\./

@@ -57,7 +57,21 @@ module OdptCommon::Modules::Decision::Common::RailwayLine::Name
   # @!endgroup
 
   #-------- [alias]
-  [ :toei_mita_line , :shinkansen ].each do | method_base_name |
+  [
+    :tokyo_metro_marunouchi_branch_line ,
+    :tokyo_metro_chiyoda_branch_line ,
+    :toei_mita_line ,
+    :toden_arakawa_line ,
+    :jr_lines ,
+    :shinkansen_of_jr_east ,
+    :shinkansen_of_jr_central ,
+    :minatomirai_line ,
+    :tobu_sky_tree_isesaki_line ,
+    :seibu_yurakucho_line ,
+    :keio_line ,
+    :yurikamome_line ,
+    :shinkansen
+  ].each do | method_base_name |
     eval <<-ALIAS
       alias :#{method_base_name}? :on_#{method_base_name}?
       alias :is_on_#{method_base_name}? :on_#{method_base_name}?

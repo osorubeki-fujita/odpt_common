@@ -33,7 +33,7 @@ module OdptCommon::Modules::Decision::Common::RailwayLine::Name
   end
 
   def on_tobu_sky_tree_isesaki_line?
-    on_the_railway_line_of?( "odpt.Railway:Tobu.SkyTreeIsesaki" )
+    on_the_railway_line_of?( "odpt.Railway:Tobu.SkyTreeIsesaki" , "odpt.Railway:Tobu.SkyTreeOshiage" , "odpt.Railway:Tobu.SkyTree" )
   end
 
   def on_seibu_yurakucho_line?

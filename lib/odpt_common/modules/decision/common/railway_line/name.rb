@@ -66,7 +66,7 @@ module OdptCommon::Modules::Decision::Common::RailwayLine::Name
     :shinkansen_of_jr_east ,
     :shinkansen_of_jr_central ,
     :minatomirai_line ,
-    :tobu_skytree_isesaki_line ,
+    :tobu_skytree_line ,
     :seibu_yurakucho_line ,
     :keio_line ,
     :yurikamome_line ,

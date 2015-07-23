@@ -1,8 +1,14 @@
 module OdptCommon::Factory::MetaProcessor::ForProcess
 
-  def self.process( *args )
-    self.new( *args ).process
-    return nil
+  extend ::ActiveSupport::Concern
+
+  module ClassMethods
+
+    def process( *args )
+      self.new( *args ).process
+      return nil
+    end
+
   end
 
   def process

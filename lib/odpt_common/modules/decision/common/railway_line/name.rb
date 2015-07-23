@@ -32,8 +32,8 @@ module OdptCommon::Modules::Decision::Common::RailwayLine::Name
     on_the_railway_line_of?( "odpt.Railway:YokohamaMinatomiraiRailway.Minatomirai" )
   end
 
-  def on_tobu_sky_tree_isesaki_line?
-    on_the_railway_line_of?( "odpt.Railway:Tobu.SkyTreeIsesaki" , "odpt.Railway:Tobu.SkyTreeOshiage" , "odpt.Railway:Tobu.SkyTree" )
+  def on_tobu_skytree_line?
+    on_the_railway_line_of?( "odpt.Railway:Tobu.SkytreeIsesaki" , "odpt.Railway:Tobu.SkytreeOshiage" , "odpt.Railway:Tobu.Skytree" )
   end
 
   def on_seibu_yurakucho_line?

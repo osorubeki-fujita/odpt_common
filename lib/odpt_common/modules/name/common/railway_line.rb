@@ -104,9 +104,9 @@ module OdptCommon::Modules::Name::Common::RailwayLine
   #   odpt.Railway:Seibu.Sayama                        : 狭山線
   #   odpt.Railway:Seibu.SeibuYurakucho                : 西武有楽町線
   #   odpt.Railway:Seibu.Shinjuku                      : 新宿線
-  #   odpt.Railway:Tobu.SkyTreeIsesaki                 : スカイツリーライン（伊勢崎線）
-  #   odpt.Railway:Tobu.SkyTreeOshiage                 : スカイツリーライン（押上 - 曳舟）
-  #   odpt.Railway:Tobu.SkyTree                        : スカイツリーライン
+  #   odpt.Railway:Tobu.SkytreeIsesaki                 : スカイツリーライン（伊勢崎線）
+  #   odpt.Railway:Tobu.SkytreeOshiage                 : スカイツリーライン（押上 - 曳舟）
+  #   odpt.Railway:Tobu.Skytree                        : スカイツリーライン
   #   odpt.Railway:Tobu.Isesaki                        : 伊勢崎線
   #   odpt.Railway:Tobu.Nikko                          : 日光線
   #   odpt.Railway:Tobu.Kinugawa                       : 鬼怒川線
@@ -185,9 +185,9 @@ module OdptCommon::Modules::Name::Common::RailwayLine
   #   odpt.Railway:Seibu.Sayama                        : Sayama Line
   #   odpt.Railway:Seibu.SeibuYurakucho                : Seibu Yurakucho Line
   #   odpt.Railway:Seibu.Shinjuku                      : Shinjuku Line
-  #   odpt.Railway:Tobu.SkyTreeIsesaki                 : Sky Tree and Isesaki Line
-  #   odpt.Railway:Tobu.SkyTreeOshiage                 : Sky Tree Line (Oshiage - Hikifune)
-  #   odpt.Railway:Tobu.SkyTree                        : Sky Tree Line
+  #   odpt.Railway:Tobu.SkytreeIsesaki                 : Skytree and Isesaki Line
+  #   odpt.Railway:Tobu.SkytreeOshiage                 : Skytree Line (Oshiage - Hikifune)
+  #   odpt.Railway:Tobu.Skytree                        : Skytree Line
   #   odpt.Railway:Tobu.Isesaki                        : Isesaki Line
   #   odpt.Railway:Tobu.Nikko                          : Nikko Line
   #   odpt.Railway:Tobu.Kinugawa                       : Kinugawa Line
@@ -265,9 +265,9 @@ module OdptCommon::Modules::Name::Common::RailwayLine
   #   odpt.Railway:Seibu.Sayama                        : SY
   #   odpt.Railway:Seibu.SeibuYurakucho                : SI
   #   odpt.Railway:Seibu.Shinjuku                      : SS
-  #   odpt.Railway:Tobu.SkyTreeIsesaki                 : TS
-  #   odpt.Railway:Tobu.SkyTreeOshiage                 : TS
-  #   odpt.Railway:Tobu.SkyTree                        : TS
+  #   odpt.Railway:Tobu.SkytreeIsesaki                 : TS
+  #   odpt.Railway:Tobu.SkytreeOshiage                 : TS
+  #   odpt.Railway:Tobu.Skytree                        : TS
   #   odpt.Railway:Tobu.Isesaki                        : TI
   #   odpt.Railway:Tobu.Nikko                          : TN
   #   odpt.Railway:Tobu.Kinugawa                       : TN
@@ -352,9 +352,9 @@ module OdptCommon::Modules::Name::Common::RailwayLine
   #   odpt.Railway:Seibu.Sayama                        : 西武狭山線
   #   odpt.Railway:Seibu.SeibuYurakucho                : 西武有楽町線
   #   odpt.Railway:Seibu.Shinjuku                      : 西武新宿線
-  #   odpt.Railway:Tobu.SkyTreeIsesaki                 : 東武スカイツリーライン（伊勢崎線）
-  #   odpt.Railway:Tobu.SkyTreeOshiage                 : 東武スカイツリーライン（押上 - 曳舟）
-  #   odpt.Railway:Tobu.SkyTree                        : 東武スカイツリーライン
+  #   odpt.Railway:Tobu.SkytreeIsesaki                 : 東武スカイツリーライン（伊勢崎線）
+  #   odpt.Railway:Tobu.SkytreeOshiage                 : 東武スカイツリーライン（押上 - 曳舟）
+  #   odpt.Railway:Tobu.Skytree                        : 東武スカイツリーライン
   #   odpt.Railway:Tobu.Isesaki                        : 東武伊勢崎線
   #   odpt.Railway:Tobu.Nikko                          : 東武日光線
   #   odpt.Railway:Tobu.Kinugawa                       : 東武鬼怒川線
@@ -433,9 +433,9 @@ module OdptCommon::Modules::Name::Common::RailwayLine
   #   odpt.Railway:Seibu.Sayama                        : Seibu Sayama Line
   #   odpt.Railway:Seibu.SeibuYurakucho                : Seibu Yurakucho Line
   #   odpt.Railway:Seibu.Shinjuku                      : Seibu Shinjuku Line
-  #   odpt.Railway:Tobu.SkyTreeIsesaki                 : Tobu Sky Tree and Isesaki Line
-  #   odpt.Railway:Tobu.SkyTreeOshiage                 : Tobu Sky Tree Line (Oshiage - Hikifune)
-  #   odpt.Railway:Tobu.SkyTree                        : Tobu Sky Tree Line
+  #   odpt.Railway:Tobu.SkytreeIsesaki                 : Tobu Skytree and Isesaki Line
+  #   odpt.Railway:Tobu.SkytreeOshiage                 : Tobu Skytree Line (Oshiage - Hikifune)
+  #   odpt.Railway:Tobu.Skytree                        : Tobu Skytree Line
   #   odpt.Railway:Tobu.Isesaki                        : Tobu Isesaki Line
   #   odpt.Railway:Tobu.Nikko                          : Tobu Nikko Line
   #   odpt.Railway:Tobu.Kinugawa                       : Tobu Kinugawa Line
@@ -515,9 +515,9 @@ module OdptCommon::Modules::Name::Common::RailwayLine
   #   odpt.Railway:Seibu.Sayama                        : 西武狭山線
   #   odpt.Railway:Seibu.SeibuYurakucho                : 西武有楽町線
   #   odpt.Railway:Seibu.Shinjuku                      : 西武新宿線
-  #   odpt.Railway:Tobu.SkyTreeIsesaki                 : 東武スカイツリーライン（伊勢崎線）
-  #   odpt.Railway:Tobu.SkyTreeOshiage                 : 東武スカイツリーライン（押上 - 曳舟）
-  #   odpt.Railway:Tobu.SkyTree                        : 東武スカイツリーライン
+  #   odpt.Railway:Tobu.SkytreeIsesaki                 : 東武スカイツリーライン（伊勢崎線）
+  #   odpt.Railway:Tobu.SkytreeOshiage                 : 東武スカイツリーライン（押上 - 曳舟）
+  #   odpt.Railway:Tobu.Skytree                        : 東武スカイツリーライン
   #   odpt.Railway:Tobu.Isesaki                        : 東武伊勢崎線
   #   odpt.Railway:Tobu.Nikko                          : 東武日光線
   #   odpt.Railway:Tobu.Kinugawa                       : 東武鬼怒川線
@@ -606,9 +606,9 @@ module OdptCommon::Modules::Name::Common::RailwayLine
   #   odpt.Railway:Seibu.Sayama                        : Seibu Sayama Line
   #   odpt.Railway:Seibu.SeibuYurakucho                : Seibu Yurakucho Line
   #   odpt.Railway:Seibu.Shinjuku                      : Seibu Shinjuku Line
-  #   odpt.Railway:Tobu.SkyTreeIsesaki                 : Tobu Sky Tree and Isesaki Line
-  #   odpt.Railway:Tobu.SkyTreeOshiage                 : Tobu Sky Tree Line (Oshiage - Hikifune)
-  #   odpt.Railway:Tobu.SkyTree                        : Tobu Sky Tree Line
+  #   odpt.Railway:Tobu.SkytreeIsesaki                 : Tobu Skytree and Isesaki Line
+  #   odpt.Railway:Tobu.SkytreeOshiage                 : Tobu Skytree Line (Oshiage - Hikifune)
+  #   odpt.Railway:Tobu.Skytree                        : Tobu Skytree Line
   #   odpt.Railway:Tobu.Isesaki                        : Tobu Isesaki Line
   #   odpt.Railway:Tobu.Nikko                          : Tobu Nikko Line
   #   odpt.Railway:Tobu.Kinugawa                       : Tobu Kinugawa Line

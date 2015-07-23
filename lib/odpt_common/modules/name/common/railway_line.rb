@@ -661,32 +661,32 @@ module OdptCommon::Modules::Name::Common::RailwayLine
     !( this_operator? or nippori_toneri_liner? or shinkansen? )
   end
 
-  def name_with_operator_name_sub( operator_name , railway_line , en: false , with_operator: true )
+  def name_with_operator_name_sub( operator_name , railway_line_name , en: false , with_operator: true )
     # 路線名が定義されていない場合
-    if railway_line.nil?
+    if railway_line_name.nil?
       # 事業者名を返す
       return operator_name
     end
 
     # 事業者名なしの設定がされている場合
     unless with_operator
-      return railway_line
+      return railway_line_name
     end
 
     # 路線名・事業者名がともに定義されている場合
-    if railway_line.string? and operator_name.string?
+    if railway_line_name.string? and operator_name.string?
       # 路線名の先頭に事業者名が付いている場合（京王線、西武有楽町線などを想定）
       # または「設定がローマ字 かつ 路線が新幹線」の場合
-      if ( !(en) and /\A#{ operator_name }/ === railway_line ) or ( en and ( /\A#{ operator_name }/ === railway_line or /Shinkansen\Z/ === railway_line or operator == "" ) )
+      if ( !(en) and /\A#{ operator_name }/ === railway_line_name ) or ( en and ( /\A#{ operator_name }/ === railway_line_name or /Shinkansen\Z/ === railway_line_name or operator_name.blank? ) )
         # 路線名を返す
-         return railway_line
+         return railway_line_name
       # 路線名の先頭に事業者名が付いていない場合
       else
         # 事業者名と路線名を繋げた文字列を返す
         if en
-          return operator_name + " " + railway_line
+          return "#{ operator_name } #{ railway_line_name }"
         else
-          return operator_name + railway_line
+          return operator_name + railway_line_name
         end
       end
     end

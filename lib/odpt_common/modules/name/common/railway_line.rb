@@ -458,7 +458,6 @@ module OdptCommon::Modules::Name::Common::RailwayLine
 
   # 路線名（標準・日本語表記・事業者名あり）を取得するメソッド
   # @return [String]
-  # @note 日暮里・舎人ライナーについては、先頭に「都営」を付けない。
   # @example
   #   ::TokyoMetro::Static.railway_lines.each_value { | railway_line | puts railway_line.same_as.ljust(48) + " : " + railway_line.name_ja_with_operator_name_precise }
   #   =>
@@ -542,8 +541,8 @@ module OdptCommon::Modules::Name::Common::RailwayLine
       err_msg_ary = ::Array.new
 
       err_msg_ary << "Error: "
-      err_msg_ary << "  \[name_ja_normal\] #{name_ja_normal_str} (class: #{name_ja_normal_str.class.name})"
-      err_msg_ary << "  \[operator_name_ja_normal\] #{operator_name_ja_normal} (class: #{operator_name_ja_normal.class.name})"
+      err_msg_ary << "  \[ name_ja_normal \] #{ name_ja_normal } (class: #{ name_ja_normal.class.name })"
+      err_msg_ary << "  \[ operator_info.name_ja_normal \] #{ operator_info.name_ja_normal } (class: #{ operator_info.name_ja_normal.class.name })"
       raise err_msg_ary.join( "\n" )
     end
   end
@@ -632,8 +631,8 @@ module OdptCommon::Modules::Name::Common::RailwayLine
     else
       ary = ::Array.new
       ary << "Error:"
-      ary << "  \[\name_ja_normal\] #{name_ja_normal_str} (class: #{name_ja_normal_str.class.name})"
-      ary << "  \[operator_name_en_normal_str\] #{operator_name_en_normal_str} (class: #{operator_name_en_normal_str.class.name})"
+      ary << "  \[ name_en_normal \] #{ name_en_normal } (class: #{ name_en_normal.class.name })"
+      ary << "  \[ operator_info.name_en_normal \] #{ operator_info.name_en_normal } (class: #{ operator_info.name_en_normal.class.name })"
       raise atr.join( "\n" )
     end
   end

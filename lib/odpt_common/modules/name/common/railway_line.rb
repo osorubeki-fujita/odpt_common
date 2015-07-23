@@ -637,6 +637,10 @@ module OdptCommon::Modules::Name::Common::RailwayLine
     end
   end
 
+  def name_ja_with_operator_name_precise_and_without_parentheses
+    name_ja_with_operator_name_precise.try( :gsub , /（.+）\Z/ , "" )
+  end
+
   # @!group 路線記号
 
   def with_bold_railway_line_code_text?

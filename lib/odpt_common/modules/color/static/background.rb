@@ -1,10 +1,10 @@
 # インスタンス変数に背景色情報が定義されているクラスに対し、背景色の情報を取得するメソッドを提供するモジュール
 module OdptCommon::Modules::Color::Static::Background
 
-  # 背景の WebColor を返すメソッド
+  # 背景の HexColor を返すメソッド
   # @return [String]
-  def bg_web_color
-    get_web_color_of( @bgcolor )
+  def bg_hex_color
+    get_hex_color_of( @bgcolor )
   end
 
   # 背景の Red, Green, Blue の各成分の情報を括弧で囲んだ文字列にして返すメソッド

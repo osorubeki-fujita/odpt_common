@@ -2,8 +2,8 @@ module OdptCommon::Modules::Color::Static::Fundamental::GetColorInfo
 
   private
 
-  def get_web_color_of( var )
-    var.web_color
+  def get_hex_color_of( var )
+    var.hex_color
   end
 
   def get_rgb_color_in_parentheses_of( var )

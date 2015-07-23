@@ -1,10 +1,10 @@
 # インスタンス変数に色情報が定義されているクラスに対し、色の情報を取得するメソッドを提供するモジュール
 module OdptCommon::Modules::Color::Static::Normal
 
-  # 背景の WebColor を返すメソッド
+  # 背景の HexColor を返すメソッド
   # @return [String]
-  def web_color
-    get_web_color_of( @color )
+  def hex_color
+    get_hex_color_of( @color )
   end
 
   # 背景の Red, Green, Blue の各成分の情報を括弧で囲んだ文字列にして返すメソッド

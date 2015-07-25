@@ -30,16 +30,16 @@ module OdptCommon::Modules::Name::Common::RailwayLine
 
   # @!group 判定 - 路線記号
 
-  def has_name_codes?
-    name_codes.present?
+  def has_codes?
+    codes.present?
   end
 
-  def has_one_name_code?
-    name_codes.length == 1
+  def has_one_code?
+    codes.length == 1
   end
 
-  def has_many_name_codes?
-    name_codes.length > 1
+  def has_many_codes?
+    codes.length > 1
   end
 
   # @!group 路線名に関するメソッド (2) - 標準（路線名のみ）
@@ -209,7 +209,7 @@ module OdptCommon::Modules::Name::Common::RailwayLine
   # 標準の路線記号を取得するメソッド
   # @return [::String or nil]
   # @example
-  #   ::TokyoMetro::Static.railway_line_infos.each_value { | railway_line | puts railway_line.same_as.ljust(48) + " : " + railway_line.name_code_normal }
+  #   ::TokyoMetro::Static.railway_line_infos.each_value { | railway_line | puts railway_line.same_as.ljust(48) + " : " + railway_line.code_normal }
   #   =>
   #   odpt.Railway:TokyoMetro.Ginza                    : G
   #   odpt.Railway:TokyoMetro.Marunouchi               : M
@@ -282,9 +282,9 @@ module OdptCommon::Modules::Name::Common::RailwayLine
   #   odpt.Railway:MIR.TX                              : (nil)
   #   odpt.Railway:Yurikamome.Yurikamome               : U
   #   odpt.Railway:TWR.Rinkai                          : (nil)
-  def name_code_normal
-    if has_name_codes?
-      name_codes_to_a.first
+  def code_normal
+    if has_codes?
+      codes_to_a.first
     else
       nil
     end
@@ -644,7 +644,7 @@ module OdptCommon::Modules::Name::Common::RailwayLine
   # @!group 路線記号
 
   def with_bold_railway_line_code_text?
-    operated_by_tokyu? or operated_by_yokohama_minatomirai_railway? or operated_by_toyo_rapid_railway? or ( name_code_normal.present? and name_code_normal.length == 1 )
+    operated_by_tokyu? or operated_by_yokohama_minatomirai_railway? or operated_by_toyo_rapid_railway? or ( code_normal.present? and code_normal.length == 1 )
   end
 
   # @!group 支線

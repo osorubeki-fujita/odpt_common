@@ -1,10 +1,11 @@
 class OdptCommon::Factory::Design::RailwayLine::CssClass < OdptCommon::Factory::Design::Fundamental::CssClass
 
-  def initialize( object )
+  def initialize( object , i )
     super( object , :name_en_with_operator_name )
+    @num = i
   end
 
-  def to_s( i = 0 )
+  def to_s
     if @object.tokyo_metro_marunouchi_branch_line?
       str = "tokyo_metro_marunouchi_branch"
     elsif @object.tokyo_metro_chiyoda_branch_line?
@@ -22,10 +23,10 @@ class OdptCommon::Factory::Design::RailwayLine::CssClass < OdptCommon::Factory::
 
     elsif @object.has_many_code_infos?
       str = super()
-      if i == 0
+      if @num == 0
         str = "#{ super() }_1"
       else
-        str = "#{ super() }_#{ i }"
+        str = "#{ super() }_#{ @num }"
       end
 
     else

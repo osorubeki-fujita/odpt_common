@@ -30,16 +30,16 @@ module OdptCommon::Modules::Name::Common::RailwayLine
 
   # @!group 判定 - 路線記号
 
-  def has_codes?
-    codes.present?
+  def has_code_infos?
+    codes_to_a.present?
   end
 
-  def has_one_code?
-    codes.length == 1
+  def has_one_code_info?
+    codes_to_a.length == 1
   end
 
-  def has_many_codes?
-    codes.length > 1
+  def has_many_code_infos?
+    codes_to_a.length > 1
   end
 
   # @!group 路線名に関するメソッド (2) - 標準（路線名のみ）
@@ -283,7 +283,7 @@ module OdptCommon::Modules::Name::Common::RailwayLine
   #   odpt.Railway:Yurikamome.Yurikamome               : U
   #   odpt.Railway:TWR.Rinkai                          : (nil)
   def code_normal
-    if has_codes?
+    if has_code_infos?
       codes_to_a.first
     else
       nil

@@ -2,6 +2,7 @@ require "odpt_common/version"
 
 require "positive_support"
 require "required_files"
+require "rails_decorate_factory"
 
 module OdptCommon
 

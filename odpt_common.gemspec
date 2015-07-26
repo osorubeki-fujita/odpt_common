@@ -40,4 +40,5 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "activesupport" , ">= 4.2.1"
   spec.add_runtime_dependency "positive_support" , ">= 0.4.0"
   spec.add_runtime_dependency "required_files"
+  spec.add_runtime_dependency "rails_decorate_factory" , ">= 0.2.0"
 end

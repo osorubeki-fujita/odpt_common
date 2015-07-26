@@ -4,7 +4,7 @@ class OdptCommon::Factory::Design::RailwayLine::CssClass < OdptCommon::Factory::
     super( object , :name_en_with_operator_name )
   end
 
-  def to_s
+  def to_s( i = 0 )
     if @object.tokyo_metro_marunouchi_branch_line?
       str = "tokyo_metro_marunouchi_branch"
     elsif @object.tokyo_metro_chiyoda_branch_line?
@@ -19,6 +19,15 @@ class OdptCommon::Factory::Design::RailwayLine::CssClass < OdptCommon::Factory::
       str = "keio_line"
     elsif @object.yurikamome_line?
       str = "yurikamome_line"
+
+    elsif object.codes_to_a.length > 1
+      str = super()
+      if i == 0
+        str = "#{ super() }_1"
+      else
+        str = "#{ super() }_#{ i }"
+      end
+
     else
       str = super()
     end

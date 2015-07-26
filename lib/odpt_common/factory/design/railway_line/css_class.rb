@@ -20,7 +20,7 @@ class OdptCommon::Factory::Design::RailwayLine::CssClass < OdptCommon::Factory::
     elsif @object.yurikamome_line?
       str = "yurikamome_line"
 
-    elsif @object.codes_to_a.length > 1
+    elsif @object.has_many_code_infos?
       str = super()
       if i == 0
         str = "#{ super() }_1"

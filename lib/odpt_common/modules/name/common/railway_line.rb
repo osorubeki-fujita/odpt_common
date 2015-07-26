@@ -35,11 +35,12 @@ module OdptCommon::Modules::Name::Common::RailwayLine
   end
 
   def has_one_code_info?
-    codes_to_a.length == 1
+    _codes_to_a = codes_to_a
+    _codes_to_a.present? and _codes_to_a.length == 1
   end
 
   def has_many_code_infos?
-    codes_to_a.length > 1
+    _codes_to_a.present? and _codes_to_a.length > 1
   end
 
   # @!group 路線名に関するメソッド (2) - 標準（路線名のみ）

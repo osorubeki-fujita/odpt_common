@@ -16,6 +16,18 @@ module OdptCommon::Modules::Decision::Common::Operator::Name
     operator_info_of?( "odpt.Operator:ToeiNipporiToneri" )
   end
 
+  def odakyu?
+    operator_info_of?( "odpt.Operator:Odakyu" )
+  end
+
+  def hakone_tozan_railway?
+    operator_info_of?( "odpt.Operator:HakoneTozan" )
+  end
+
+  def odakyu_group?
+    odakyu? or hakone_tozan_railway?
+  end
+
   def tokyu?
     operator_info_of?( "odpt.Operator:Tokyu" )
   end

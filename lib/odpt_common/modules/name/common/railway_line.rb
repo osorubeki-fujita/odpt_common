@@ -40,6 +40,7 @@ module OdptCommon::Modules::Name::Common::RailwayLine
   end
 
   def has_many_code_infos?
+    _codes_to_a = codes_to_a
     _codes_to_a.present? and _codes_to_a.length > 1
   end
 

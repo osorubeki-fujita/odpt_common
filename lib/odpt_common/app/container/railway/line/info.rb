@@ -53,7 +53,7 @@ class OdptCommon::App::Container::Railway::Line::Info
       ary = ::Array.new
       ary << connected_infos.pluck( :id ).sort
       connected_infos.each do | item |
-        ary << item.send( __mehod__ )
+        ary << item.send( method_name )
         ary.flatten!
         ary.sort!
       end

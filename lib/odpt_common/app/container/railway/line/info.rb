@@ -7,11 +7,11 @@ class OdptCommon::App::Container::Railway::Line::Info
 
   attr_reader :object
 
-  def is_branch_railway_line_info?
+  def is_branch_railway_line_infos?
     ::Railway::Line::Relation.where( branch_railway_line_info_id: @object.id ).present?
   end
 
-  def has_branch_railway_line_info?
+  def has_branch_railway_line_infos?
     ::Railway::Line::Relation.where( main_railway_line_info_id: @object.id ).present?
   end
 

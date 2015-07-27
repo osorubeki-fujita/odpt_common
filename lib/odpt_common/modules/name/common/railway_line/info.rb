@@ -643,6 +643,32 @@ module OdptCommon::Modules::Name::Common::RailwayLine::Info
     end
   end
 
+  # @!group 路線名に関するメソッド (5) - 表示用（事業者名 + 路線名）【特殊な路線を処理】
+
+  def name_ja_to_display( process_special_railway_line: true )
+    if process_special_railway_line
+      if seibu_yurakucho_line?
+        "西武線"
+      else
+        name_ja_with_operator_name
+      end
+    else
+      name_ja_with_operator_name
+    end
+  end
+
+  def name_en_to_display( process_special_railway_line: true )
+    if process_special_railway_line
+      if seibu_yurakucho_line?
+        "Seibu Line"
+      else
+        name_en_with_operator_name
+      end
+    else
+      name_en_with_operator_name
+    end
+  end
+
   # @!group 路線記号
 
   def with_bold_railway_line_code_text?

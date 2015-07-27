@@ -534,12 +534,10 @@ module OdptCommon::Modules::Name::Common::RailwayLine::Info
   #   odpt.Railway:MIR.TX                              : つくばエクスプレス
   #   odpt.Railway:Yurikamome.Yurikamome               : ゆりかもめ
   #   odpt.Railway:TWR.Rinkai                          : りんかい線
-  def name_ja_with_operator_name_precise
+  def name_ja_with_operator_name_precise( without_parentheses: false )
     str = name_with_operator_name_sub( operator_info.name_ja_normal , name_ja_normal , en: false )
 
-    if str.string?
-      return str
-    else
+    unless str.string?
       err_msg_ary = ::Array.new
 
       err_msg_ary << "Error: "
@@ -547,6 +545,12 @@ module OdptCommon::Modules::Name::Common::RailwayLine::Info
       err_msg_ary << "  \[ operator_info.name_ja_normal \] #{ operator_info.name_ja_normal } (class: #{ operator_info.name_ja_normal.class.name })"
       raise err_msg_ary.join( "\n" )
     end
+
+    if without_parentheses
+      str = str.gsub( /（.+）\Z/ , "" )
+    end
+
+    return str
   end
 
   # 路線名（標準・ローマ字表記・事業者名あり）を取得するメソッド
@@ -637,10 +641,6 @@ module OdptCommon::Modules::Name::Common::RailwayLine::Info
       ary << "  \[ operator_info.name_en_normal \] #{ operator_info.name_en_normal } (class: #{ operator_info.name_en_normal.class.name })"
       raise atr.join( "\n" )
     end
-  end
-
-  def name_ja_with_operator_name_precise_and_without_parentheses
-    name_ja_with_operator_name_precise.try( :gsub , /（.+）\Z/ , "" )
   end
 
   # @!group 路線記号

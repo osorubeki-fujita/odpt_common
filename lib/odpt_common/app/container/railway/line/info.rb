@@ -27,19 +27,11 @@ class OdptCommon::App::Container::Railway::Line::Info
   end
 
   def ids_of_upper_railway_line_infos
-    _main_railway_line_infos = main_railway_line_infos
-    if _main_railway_line_infos.present?
-      ary = ::Array.new
-      ary << _main_railway_line_infos.pluck( :id ).sort
-      _main_railway_line_infos.each do | item |
-        ary << item.ids_of_upper_railway_line_infos
-        ary.flatten!
-        ary.sort!
-      end
-      ary
-    else
-      []
-    end
+    ids_of_connected_infos( __method__ , main_railway_line_infos )
+  end
+
+  def ids_of_branch_railway_line_infos
+    ids_of_connected_infos( __method__ , branch_railway_line_infos )
   end
 
   private
@@ -50,6 +42,26 @@ class OdptCommon::App::Container::Railway::Line::Info
 
   def main_railway_line_infos
     @object.main_railway_line_infos
+  end
+
+  def branch_railway_line_infos
+    @object.branch_railway_line_infos
+  end
+
+  def ids_of_connected_infos( :method_name , infos )
+    _connected_infos = connected_infos
+    if _connected_infos.present?
+      ary = ::Array.new
+      ary << _connected_infos.pluck( :id ).sort
+      _connected_infos.each do | item |
+        ary << item.send( __mehod__ )
+        ary.flatten!
+        ary.sort!
+      end
+      ary
+    else
+      []
+    end
   end
 
 end

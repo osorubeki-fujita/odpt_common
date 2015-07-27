@@ -48,7 +48,7 @@ class OdptCommon::App::Container::Railway::Line::Info
     @object.branch_railway_line_infos
   end
 
-  def ids_of_connected_infos( :method_name , infos )
+  def ids_of_connected_infos( method_name , infos )
     _connected_infos = connected_infos
     if _connected_infos.present?
       ary = ::Array.new

@@ -1,4 +1,4 @@
-module OdptCommon::Modules::Name::Common::RailwayLine::StationAttribute
+module OdptCommon::Modules::Attributes::Common::RailwayLine::Station
 
   # @!group 「駅」の属性（路面電車については「停留場」）
 

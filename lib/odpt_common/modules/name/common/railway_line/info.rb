@@ -50,7 +50,7 @@ module OdptCommon::Modules::Name::Common::RailwayLine::Info
   # @return [String] 路線名（インスタンス変数 name）が定義されている場合
   # @return [nil] 路線名（インスタンス変数 name）が定義されていない場合
   # @example
-  #   ::TokyoMetro::Static.railway_line_infos.each_value { | railway_line | puts same_as.ljust(48) + " : " + railway_line.name_ja_normal }
+  #   ::TokyoMetro::Static.railway_lines.each_value { | railway_line | puts same_as.ljust(48) + " : " + railway_line.name_ja_normal }
   #   =>
   #   odpt.Railway:TokyoMetro.Ginza                    : 銀座線
   #   odpt.Railway:TokyoMetro.Marunouchi               : 丸ノ内線
@@ -131,7 +131,7 @@ module OdptCommon::Modules::Name::Common::RailwayLine::Info
   # @return [String] 路線名（インスタンス変数 name_en）が定義されている場合
   # @return [nil] 路線名（インスタンス変数 name_en）が定義されていない場合
   # @example
-  #   ::TokyoMetro::Static.railway_line_infos.each_value { | railway_line | puts railway_line.same_as.ljust(48) + " : " + railway_line.name_en_normal }
+  #   ::TokyoMetro::Static.railway_lines.each_value { | railway_line | puts railway_line.same_as.ljust(48) + " : " + railway_line.name_en_normal }
   #   =>
   #   odpt.Railway:TokyoMetro.Ginza                    : Ginza Line
   #   odpt.Railway:TokyoMetro.Marunouchi               : Marunouchi Line
@@ -211,7 +211,7 @@ module OdptCommon::Modules::Name::Common::RailwayLine::Info
   # 標準の路線記号を取得するメソッド
   # @return [::String or nil]
   # @example
-  #   ::TokyoMetro::Static.railway_line_infos.each_value { | railway_line | puts railway_line.same_as.ljust(48) + " : " + railway_line.code_normal }
+  #   ::TokyoMetro::Static.railway_lines.each_value { | railway_line | puts railway_line.same_as.ljust(48) + " : " + railway_line.code_normal }
   #   =>
   #   odpt.Railway:TokyoMetro.Ginza                    : G
   #   odpt.Railway:TokyoMetro.Marunouchi               : M
@@ -673,12 +673,6 @@ module OdptCommon::Modules::Name::Common::RailwayLine::Info
 
   def with_bold_railway_line_code_text?
     operated_by_tokyu? or operated_by_yokohama_minatomirai_railway? or operated_by_toyo_rapid_railway? or ( code_normal.present? and code_normal.length == 1 )
-  end
-
-  # @!group 支線
-
-  def is_not_branch_railway_line_info?
-    !( is_branch_railway_line_info? )
   end
 
   # @!endgroup

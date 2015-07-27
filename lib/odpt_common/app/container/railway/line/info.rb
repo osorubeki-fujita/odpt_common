@@ -48,12 +48,11 @@ class OdptCommon::App::Container::Railway::Line::Info
     @object.branch_railway_line_infos
   end
 
-  def ids_of_connected_infos( method_name , infos )
-    _connected_infos = connected_infos
-    if _connected_infos.present?
+  def ids_of_connected_infos( method_name , connected_infos )
+    if connected_infos.present?
       ary = ::Array.new
-      ary << _connected_infos.pluck( :id ).sort
-      _connected_infos.each do | item |
+      ary << connected_infos.pluck( :id ).sort
+      connected_infos.each do | item |
         ary << item.send( __mehod__ )
         ary.flatten!
         ary.sort!

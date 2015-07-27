@@ -1,4 +1,4 @@
-module OdptCommon::Modules::Name::Common::Operator
+module OdptCommon::Modules::Name::Common::Operator::Info
 
   # @!group 鉄道事業者の名称に関するメソッド (1) - 標準の名称（詳細版）
 

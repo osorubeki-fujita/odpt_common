@@ -7,7 +7,8 @@ class OdptCommon::Required::All < OdptCommon::Required
   def self.other_files
     [
       Modules.files ,
-      Factory.files
+      Factory.files ,
+      App.files
     ]
   end
 

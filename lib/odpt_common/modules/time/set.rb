@@ -15,12 +15,13 @@ module OdptCommon::Modules::Time::Set
       return t
     end
 
-    if t.instance_of?( ::String ) and /\A(\d{4})\.(\d{2})\.(\d{2})\Z/ =~ t
+    if t.instance_of?( ::String ) and /\A(\d{4})\.(\d{1,2})\.(\d{2})\Z/ =~ t
       y , m , d = $1.to_i , $2.to_i , $3.to_i
       t = ::DateTime.new( y , m , d , ::TokyoMetro::DATE_CHANGING_HOUR )
       if type == :end_on
         t = t.tomorrow
       end
+
       return t
     end
 

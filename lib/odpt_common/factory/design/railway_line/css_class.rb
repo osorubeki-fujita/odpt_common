@@ -23,8 +23,12 @@ class OdptCommon::Factory::Design::RailwayLine::CssClass < OdptCommon::Factory::
 
     elsif @object.odakyu_line?
       str = "odakyu_line"
-    elsif @object.on_tobu_skytree_line_with_through_operation_infos?
-      str = super()
+    elsif @object.on_tobu_skytree_isesaki_line_through_to_hanzomon_line?
+      str = "tobu_isesaki_hanzomon"
+    elsif @object.on_tobu_skytree_nikko_line_through_to_hanzomon_line?
+      str = "tobu_nikko_hanzomon"
+    elsif @object.on_tobu_skytree_nikko_line_through_to_hibiya_line?
+      str = "tobu_nikko_hibiya"
 
     elsif @object.has_many_code_infos?
       str = super()

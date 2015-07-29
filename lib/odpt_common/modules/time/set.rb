@@ -5,9 +5,11 @@ module OdptCommon::Modules::Time::Set
   private
 
   def set_time_of( t , type: nil )
-    types = ::OdptCommon::Modules::Time::Set::TYPES
+    if t.nil?
+      return nil
+    end
 
-    raise "Error" unless types.include?( type )
+    raise "Error" unless ::OdptCommon::Modules::Time::Set::TYPES.include?( type )
 
     if t.instance_of?( ::Time ) or t.instance_of?( ::DateTime ) or t.nil?
       return t
@@ -22,7 +24,7 @@ module OdptCommon::Modules::Time::Set
       return t
     end
 
-    raise "Error"
+    raise "Error: \'#{ t }\' (Class: #{ t.class.name }) is not valid."
   end
 
 end

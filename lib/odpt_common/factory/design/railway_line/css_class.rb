@@ -21,6 +21,11 @@ class OdptCommon::Factory::Design::RailwayLine::CssClass < OdptCommon::Factory::
     elsif @object.yurikamome_line?
       str = "yurikamome_line"
 
+    elsif @object.odakyu_line?
+      str = "odakyu_line"
+    elsif @object.on_tobu_skytree_line_with_through_operation_infos?
+      str = super()
+
     elsif @object.has_many_code_infos?
       str = super()
       if @num == 0
@@ -32,6 +37,7 @@ class OdptCommon::Factory::Design::RailwayLine::CssClass < OdptCommon::Factory::
     else
       str = super()
     end
+
     return str
   end
 

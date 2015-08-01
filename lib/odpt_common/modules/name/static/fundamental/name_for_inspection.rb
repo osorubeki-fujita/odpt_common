@@ -1,5 +1,5 @@
 # 路線名などを取得するためのメソッドを提供するモジュール
-module OdptCommon::Modules::Name::Static::Fundamental::ForInspection
+module OdptCommon::Modules::Name::Static::Fundamental::NameForInspection
 
   [ :ja , :hira , :en ].each do | name_attr |
     eval <<-DEF

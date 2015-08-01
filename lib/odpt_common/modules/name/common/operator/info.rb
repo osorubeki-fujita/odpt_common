@@ -30,6 +30,10 @@ module OdptCommon::Modules::Name::Common::Operator::Info
     name_ja_to_a.first
   end
 
+  def name_hira_normal_precise
+    name_hira_to_a.first
+  end
+
   # 鉄道事業者の標準の名称（ローマ字表記・詳細版）
   # @return [::String]
   # @example
@@ -91,6 +95,14 @@ module OdptCommon::Modules::Name::Common::Operator::Info
       name_ja_short
     else
       name_ja_normal_precise
+    end
+  end
+
+  def name_hira_normal
+    if name_hira_short.present?
+      name_hira_short
+    else
+      name_hira_normal_precise
     end
   end
 
@@ -274,6 +286,10 @@ module OdptCommon::Modules::Name::Common::Operator::Info
 
   def has_many_name_ja?
     name_ja_to_a.length > 1
+  end
+
+  def has_many_name_hira?
+    name_hira_to_a.length > 1
   end
 
   def has_many_name_en?

@@ -91,19 +91,11 @@ module OdptCommon::Modules::Name::Common::Operator::Info
   #   ゆりかもめ
   #   りんかい線
   def name_ja_normal
-    if name_ja_short.present?
-      name_ja_short
-    else
-      name_ja_normal_precise
-    end
+    name_normal( :ja )
   end
 
   def name_hira_normal
-    if name_hira_short.present?
-      name_hira_short
-    else
-      name_hira_normal_precise
-    end
+    name_normal( :hira )
   end
 
   # 標準の名称（ローマ字表記・簡易版）
@@ -133,11 +125,7 @@ module OdptCommon::Modules::Name::Common::Operator::Info
   #   Yurikamome
   #   Rinkai Line
   def name_en_normal
-    if name_en_short.present?
-      name_en_short
-    else
-      name_en_normal_precise
-    end
+    name_normal( :en )
   end
 
   # @!group 鉄道事業者の名称に関するメソッド (3) - 乗り換え等の情報で使用
@@ -169,11 +157,11 @@ module OdptCommon::Modules::Name::Common::Operator::Info
   #   odpt.Operator:Yurikamome         : ゆりかもめ
   #   odpt.Operator:TWR                : りんかい線
   def name_ja_for_transfer_info
-    if this_operator? or nippori_toneri_liner?
-      nil
-    else
-      name_ja_normal
-    end
+    name_for_transfer_info( :ja )
+  end
+
+  def name_hira_for_transfer_info
+    name_for_transfer_info( :hira )
   end
 
   # 乗り換え等の情報で使用する名称（ローマ字表記）
@@ -203,11 +191,7 @@ module OdptCommon::Modules::Name::Common::Operator::Info
   #   odpt.Operator:Yurikamome         : Yurikamome
   #   odpt.Operator:TWR                : Rinkai Line
   def name_en_for_transfer_info
-    if this_operator? or nippori_toneri_liner?
-      nil
-    else
-      name_en_normal
-    end
+    name_for_transfer_info( :en )
   end
 
   # @!group 鉄道事業者の名称に関するメソッド (4) - 超詳細
@@ -239,11 +223,16 @@ module OdptCommon::Modules::Name::Common::Operator::Info
   def name_ja_very_precise
     if nippori_toneri_liner?
       "日暮里・舎人ライナー"
-    elsif has_many_name_ja?
-      in_parentheses = name_ja_to_a[ 1..(-1) ].join( "／" )
-      "#{ name_ja_normal_precise }（#{ in_parentheses }）"
     else
-      name_ja_normal_precise
+      name_very_precise( :ja )
+    end
+  end
+
+  def name_hira_very_precise
+    if nippori_toneri_liner?
+      "にっぽり・とねりらいなー"
+    else
+      name_very_precise( :hira )
     end
   end
 
@@ -274,26 +263,67 @@ module OdptCommon::Modules::Name::Common::Operator::Info
   def name_en_very_precise
     if nippori_toneri_liner?
       "Nippori Toneri Liner"
-    elsif has_many_name_en?
-      in_parentheses = name_en_to_a[ 1..(-1) ].join( " / " )
-      "#{ name_en_normal_precise } (#{ in_parentheses })"
     else
-      name_en_normal_precise
+      name_very_precise( :en )
     end
   end
 
   # @!group 路線名の個数（別名などがあるか否か）の判定
 
-  def has_many_name_ja?
-    name_ja_to_a.length > 1
+  [ :ja , :hira , :en ].each do | name_attr |
+    eval <<-DEF
+      def has_many_name_#{ name_attr }?
+        name_#{ name_attr }_to_a.length > 1
+      end
+    DEF
   end
 
-  def has_many_name_hira?
-    name_hira_to_a.length > 1
+  private
+
+  def name_normal( name_attr )
+    check_validity_of_name_attr( name_attr )
+    short = send( "name_#{ name_attr }_short" )
+
+    if short.present?
+      short
+    else
+      send( "name_#{ name_attr }_normal_precise")
+    end
   end
 
-  def has_many_name_en?
-    name_en_to_a.length > 1
+  def name_for_transfer_info( name_attr )
+    check_validity_of_name_attr( name_attr )
+    if this_operator? or nippori_toneri_liner?
+      nil
+    else
+      send( "name_#{ name_attr }_normal")
+    end
+  end
+
+  def name_very_precise( name_attr )
+    check_validity_of_name_attr( name_attr )
+    basename = send( "name_#{ name_attr }_normal_precise")
+
+    if send( "has_many_name_#{ name_attr }?" )
+      joint_str = name_very_precise_joint_str( name_atr )
+      in_parentheses = send( "name_#{ name_attr }_to_a")[ 1..(-1) ].join( joint_str )
+      return "#{ basename } #{ in_parentheses }"
+    else
+      basename
+    end
+  end
+
+  def name_very_precise_joint_str( name_atr )
+    case name_attr
+    when :ja , :hira
+      "／"
+    else
+      " / "
+    end
+  end
+
+  def check_validity_of_name_attr( name_attr )
+    raise unless [ :ja , :hira , :en ].include?( name_attr )
   end
 
 end

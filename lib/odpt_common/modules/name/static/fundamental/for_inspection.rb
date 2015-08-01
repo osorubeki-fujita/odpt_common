@@ -1,16 +1,12 @@
 # 路線名などを取得するためのメソッドを提供するモジュール
 module OdptCommon::Modules::Name::Static::Fundamental::ForInspection
 
-  def name_ja_inspect
-    name_for_inspection( @name_ja )
-  end
-
-  def name_hira_inspect
-    name_for_inspection( @name_hira )
-  end
-
-  def name_en_inspect
-    name_for_inspection( @name_en )
+  [ :ja , :hira , :en ].each do | name_attr |
+    eval <<-DEF
+      def name_#{ name_attr }_inspect
+        name_for_inspection( @name_#{ name_attr } )
+      end
+    DEF
   end
 
   private

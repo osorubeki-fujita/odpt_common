@@ -307,7 +307,15 @@ module OdptCommon::Modules::Name::Common::Operator::Info
     if send( "has_many_name_#{ name_attr }?" )
       joint_str = name_very_precise_joint_str( name_attr )
       in_parentheses = send( "name_#{ name_attr }_to_a")[ 1..(-1) ].join( joint_str )
-      return "#{ basename } #{ in_parentheses }"
+
+      case name_attr
+      when :ja , :hira
+        with_parentheses = "（#{ in_parentheses }）"
+      else
+        with_parentheses = " (#{ in_parentheses })"
+      end
+
+      return "#{ basename }#{ with_parentheses }"
     else
       basename
     end

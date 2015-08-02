@@ -305,7 +305,7 @@ module OdptCommon::Modules::Name::Common::Operator::Info
     basename = send( "name_#{ name_attr }_normal_precise")
 
     if send( "has_many_name_#{ name_attr }?" )
-      joint_str = name_very_precise_joint_str( name_atr )
+      joint_str = name_very_precise_joint_str( name_attr )
       in_parentheses = send( "name_#{ name_attr }_to_a")[ 1..(-1) ].join( joint_str )
       return "#{ basename } #{ in_parentheses }"
     else

@@ -313,7 +313,7 @@ module OdptCommon::Modules::Name::Common::Operator::Info
     end
   end
 
-  def name_very_precise_joint_str( name_atr )
+  def name_very_precise_joint_str( name_attr )
     case name_attr
     when :ja , :hira
       "／"
